@@ -20,7 +20,6 @@ public class JPAExample {
 	private UserRepository userRepository;
 
 	public void run() {
-		// TODO Auto-generated method stub
 		List<User> userList = new ArrayList<User>();
 		userList.add(new User(0, "ana", "mere", "ana@nomail.com"));
 		userList.add(new User(0, "vlaicu", "avion", "vlaicu@nomail.com"));
@@ -29,5 +28,11 @@ public class JPAExample {
 			log.info("Inserting user record: {}", user);
 			userRepository.save(user);
 		}
+		
+		Iterable<User> foundUserList = userRepository.findAllByUsername("ana");
+		for (User user : foundUserList) {
+			log.info("Found user: {}", user.toString());
+		}
+		
 	}
 }
