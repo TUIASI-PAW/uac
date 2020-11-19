@@ -1,4 +1,4 @@
-package ro.h23.uac.tmp;
+package ro.h23.uac.example;
 
 import java.util.ArrayList;
 import java.util.List;

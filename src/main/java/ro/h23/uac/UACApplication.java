@@ -7,7 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ro.h23.uac.tmp.JDBCExample;
+import ro.h23.uac.example.JDBCExample;
+import ro.h23.uac.example.JPAExample;
 
 // https://spring.io/guides/gs/relational-data-access/
 
@@ -22,14 +23,18 @@ public class UACApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	JDBCExample jdbcExample;
+	private JDBCExample jdbcExample;
+	
+	@Autowired
+	private JPAExample jpaExample;
 	
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hello World!");
 		log.info("Hello World!!!");
-		jdbcExample.run();
+		//jdbcExample.run();
 		
+		jpaExample.run();
 				
 	}
 
