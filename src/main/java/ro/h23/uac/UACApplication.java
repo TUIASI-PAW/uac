@@ -1,10 +1,19 @@
 package ro.h23.uac;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import ro.h23.uac.model.User;
+
+// https://spring.io/guides/gs/relational-data-access/
 
 @SpringBootApplication
 public class UACApplication implements CommandLineRunner {
@@ -15,11 +24,31 @@ public class UACApplication implements CommandLineRunner {
 		SpringApplication.run(UACApplication.class, args);
 	}
 
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hello World!");
 		log.info("Hello World!!!");
+
+		jdbcTemplate.execute("DROP TABLE user IF EXISTS");
+		jdbcTemplate.execute("CREATE TABLE user(id SERIAL, username VARCHAR(30), password VARCHAR(255), email VARCHAR(255))");
+
+		List<User> userList = new ArrayList<User>();
+		userList.add(new User(0, "ana", "mere", "ana@nomail.com"));
+		userList.add(new User(0, "vlaicu", "avion", "vlaicu@nomail.com"));
+
+		List<Object[]> userPropertiesList = new ArrayList<Object[]>();
+		userList.forEach(user -> userPropertiesList.add(user.toObjectArray()));
+		userList.forEach(user -> log.info("Inserting user record: {}", user));
+
+		jdbcTemplate.batchUpdate("INSERT INTO user(username, password, email) VALUES (?,?, ?)", userPropertiesList);
+
+		log.info("Querying for user records where username = 'Ana':");
+		jdbcTemplate.query("SELECT id, username, password, email FROM user WHERE username=?", new Object[] { "ana" }, (rs,
+				rowNum) -> new User(rs.getLong("id"), rs.getString("username"), rs.getString("password"), rs.getString("email")))
+				.forEach(user -> log.info(user.toString()));
 	}
 
-	
 }

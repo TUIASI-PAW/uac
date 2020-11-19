@@ -14,6 +14,10 @@ public class User {
 		this.password = password;
 		this.email = email;
 	}
+	
+	public Object[] toObjectArray() {
+		return new Object[] { username, password, email };
+	}
 
 	@Override
 	public String toString() {
