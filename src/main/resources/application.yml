@@ -4,8 +4,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-  datasource:    platform: mysql
+  datasource:
+    platform: mysql
     url: jdbc:mysql://localhost:3306/uac
     username: uac_user
     password: F$#T$#TewfWR3%
     driverClassName: com.mysql.cj.jdbc.Driver
+    
