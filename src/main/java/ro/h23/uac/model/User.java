@@ -5,11 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
+
 //javax.persistence.* <= spring-boot-starter-data-jpa
 @Entity // hibernate will create a table out of this class
+//@Table(name = "user")
 public class User {
 
 	@Id
+	//@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
