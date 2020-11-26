@@ -34,13 +34,15 @@ public class AuthenticationExample {
 			try {
 				Authentication request = new UsernamePasswordAuthenticationToken(name, password);
 				Authentication result = authenticationManager.authenticate(request);
+				// Spring Security doesn’t mind how you put the Authentication object inside the SecurityContextHolder.
+				// The only critical requirement is that the SecurityContextHolder contains an Authentication
 				SecurityContextHolder.getContext().setAuthentication(result);
 				break;
 			} catch (AuthenticationException e) {
 				System.out.println("Authentication failed: " + e.getMessage());
 			}
 		}
-		System.out.println("Successfully authenticated. Security context contains: "
-				+ SecurityContextHolder.getContext().getAuthentication());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println("Successfully authenticated. Security context contains: " + auth);
 	}
 }
