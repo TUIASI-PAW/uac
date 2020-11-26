@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 // https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
 
 //javax.persistence.* <= spring-boot-starter-data-jpa
@@ -33,6 +35,20 @@ public class User {
 		this.email = email;
 	}
 
+	// we need public getters, otherwise @GetMapping return a list of empty objects
+	
+	public long getId() {
+		return id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String getEmail() {
+		return email;
+	}
 	public Object[] toObjectArray() {
 		return new Object[] { username, password, email };
 	}
