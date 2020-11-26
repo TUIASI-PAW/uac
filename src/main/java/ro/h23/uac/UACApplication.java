@@ -11,9 +11,9 @@ import ro.h23.uac.example.JDBCExample;
 import ro.h23.uac.example.JPAExample;
 
 // https://spring.io/guides/gs/relational-data-access/
+//@Sql({"/sqls/user_schema.sql"})
 
 @SpringBootApplication
-//@Sql({"/sqls/user_schema.sql"})
 public class UACApplication implements CommandLineRunner {
 
 	private static final Logger log = LoggerFactory.getLogger(UACApplication.class);
@@ -22,8 +22,8 @@ public class UACApplication implements CommandLineRunner {
 		SpringApplication.run(UACApplication.class, args);
 	}
 
-	@Autowired
-	private JDBCExample jdbcExample;
+	//@Autowired
+	//private JDBCExample jdbcExample;
 	
 	@Autowired
 	private JPAExample jpaExample;

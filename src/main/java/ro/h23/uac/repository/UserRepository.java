@@ -44,6 +44,7 @@ import ro.h23.uac.model.User;
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+	// SELECT * FROM user WHERE username = :username
 	@Query("SELECT u FROM User u WHERE u.username = :username")
 	Iterable<User> findAllByUsername(@Param("username") String username);
 

@@ -10,4 +10,4 @@ spring:
     username: uac_user
     password: F$#T$#TewfWR3%
     driverClassName: com.mysql.cj.jdbc.Driver
-    
+

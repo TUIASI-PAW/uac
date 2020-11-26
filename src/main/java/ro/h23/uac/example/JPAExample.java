@@ -24,10 +24,11 @@ public class JPAExample {
 		userList.add(new User(0, "ana", "mere", "ana@nomail.com"));
 		userList.add(new User(0, "vlaicu", "avion", "vlaicu@nomail.com"));
 		
-		for(User user : userList) {
+		/*for(User user : userList) {
 			log.info("Inserting user record: {}", user);
 			userRepository.save(user);
-		}
+		}*/
+		userRepository.saveAll(userList);
 		
 		Iterable<User> foundUserList = userRepository.findAllByUsername("ana");
 		for (User user : foundUserList) {

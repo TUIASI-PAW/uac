@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 //javax.persistence.* <= spring-boot-starter-data-jpa
 @Entity // hibernate will create a table out of this class
-//@Table(name = "user")
+//@Table(name = "users")
 public class User {
 
 	@Id
@@ -24,7 +24,7 @@ public class User {
 	// required for UserRepository @Query
 	public User() {
 	}
-	
+	//lombok
 	public User(long id, String username, String password, String email) {
 		super();
 		this.id = id;
