@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.web.bind.annotation.GetMapping;
-
 // https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
 
 //javax.persistence.* <= spring-boot-starter-data-jpa
