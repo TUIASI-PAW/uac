@@ -17,6 +17,8 @@ public class TrivialAuthenticationManager implements AuthenticationManager {
 	static final List<GrantedAuthority> AUTHORITIES = new ArrayList<GrantedAuthority>();
 
 	static {
+		// Examples of GrantedAuthority - ROLE_USER, READ_AUTHORITY, WRITE_PRIVILEGE, CAN_EXECUTE_AS_ROOT
+		// protected by authority vs protected by role
 		AUTHORITIES.add(new SimpleGrantedAuthority("ROLE_USER"));
 	}
 
