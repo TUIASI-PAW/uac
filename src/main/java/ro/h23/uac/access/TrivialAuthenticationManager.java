@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TrivialAuthenticationManager implements AuthenticationManager {
+	
 	static final List<GrantedAuthority> AUTHORITIES = new ArrayList<GrantedAuthority>();
 
 	static {

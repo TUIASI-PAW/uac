@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+// http://localhost:8080/session
 @RequestMapping(path = "/session")
 public class SessionController {
 
 	private static final Logger log = LoggerFactory.getLogger(SessionController.class);
 	
+	// GET http://localhost:8080/session
 	@GetMapping("")
 	public String process(Model model, HttpSession session) {
 		@SuppressWarnings("unchecked")
@@ -34,6 +36,7 @@ public class SessionController {
 		return "session/index";
 	}
 
+	// POST http://localhost:8080/session/persistMessage
 	@PostMapping("/persistMessage")
 	public String persistMessage(@RequestParam("msg") String msg, HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
@@ -47,6 +50,7 @@ public class SessionController {
 		return "redirect:/session";
 	}
 
+	// POST http://localhost:8080/session/destroy
 	@PostMapping("/destroy")
 	public String destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();

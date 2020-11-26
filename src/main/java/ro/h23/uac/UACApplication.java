@@ -28,8 +28,8 @@ public class UACApplication implements CommandLineRunner {
 	//@Autowired
 	//private JPAExample jpaExample;
 	
-	//@Autowired
-	//private AuthenticationExample authenticationExample;
+	@Autowired
+	private AuthenticationExample authenticationExample;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -37,7 +37,7 @@ public class UACApplication implements CommandLineRunner {
 		log.info("Hello World!!!");
 		//jdbcExample.run();	
 		//jpaExample.run();
-		//authenticationExample.run();
+		authenticationExample.run();
 				
 	}
 

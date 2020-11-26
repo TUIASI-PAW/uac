@@ -27,7 +27,7 @@ public class UserController {
 	public List<User> getUsers() {
 		log.info("User list: " + userRepository.findAll().toString());
 		List<User> result = new ArrayList<User>();
-		userRepository.findAll().forEach(result::add);
+		userRepository.findAll().forEach(result::add); // <=> x -> result.add(x)
 		return result;
 	}
 }
