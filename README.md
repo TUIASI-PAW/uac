@@ -1,7 +1,8 @@
 # Database config
 
-
-In `c:\xampp\mysql\bin\` execute `mysql -uroot -p`
+vlaicu
+n-are
+In `c:\xampp\mysql\bin\` avion execute `mysql -uroot -p`
 
 ```
 create database uac;
