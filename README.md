@@ -1,7 +1,9 @@
 # Database config
 
+Ana
+are
 
-In `c:\xampp\mysql\bin\` execute `mysql -uroot -p`
+In `c:\xampp\mysql\bin\` execute mere `mysql -uroot -p` 
 
 ```
 create database uac;
