@@ -1,13 +1,20 @@
 spring:
   session:
     store-type: jdbc
-    jdbc:      initialize-schema: always
+    jdbc:
+      initialize-schema: always
     timeout: 900
   jpa:
     database: MYSQL
     show-sql: false
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        globally_quoted_identifiers_skip_column_definitions: true
+        use-new-id-generator-mappings: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
+      dialect: org.hibernate.dialect.MySQL57Dialect
   datasource:
     platform: mysql
     url: jdbc:mysql://localhost:3306/uac

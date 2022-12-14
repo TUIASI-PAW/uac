@@ -1,5 +1,6 @@
 package ro.h23.uac.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -42,7 +43,8 @@ import ro.h23.uac.model.User;
 // https://spring.io/guides/gs/accessing-data-mysql/
 @Repository
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
-public interface UserRepository extends CrudRepository<User, Integer> {
+// JpaRepository extends both ListCrudRepository and ListPagingAndSortingRepository
+public interface UserRepository extends JpaRepository<User, Integer> {
 
 	// SELECT * FROM user WHERE username = :username
 	@Query("SELECT u FROM User u WHERE u.username = :username")

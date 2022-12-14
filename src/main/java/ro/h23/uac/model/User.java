@@ -1,19 +1,17 @@
 package ro.h23.uac.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 // https://www.codejava.net/frameworks/spring-boot/spring-boot-security-role-based-authorization-tutorial
 
 //javax.persistence.* <= spring-boot-starter-data-jpa
 @Entity // hibernate will create a table out of this class
-//@Table(name = "users")
+@Table(name = "\"xyz\"")
 public class User {
 
 	@Id
 	//@Column(name = "user_id")
+	@Column(name ="id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
@@ -49,6 +47,18 @@ public class User {
 	}
 	public Object[] toObjectArray() {
 		return new Object[] { username, password, email };
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import ro.h23.uac.example.AuthenticationExample;
 import ro.h23.uac.example.JPAExample;
+import ro.h23.uac.repository.UserRepository;
 
 // https://spring.io/guides/gs/relational-data-access/
 //@Sql({"/sqls/user_schema.sql"})
@@ -22,14 +23,17 @@ public class UACApplication implements CommandLineRunner {
 		SpringApplication.run(UACApplication.class, args);
 	}
 
+	@Autowired
+	UserRepository userRepository;
+
 	//@Autowired
 	//private JDBCExample jdbcExample;
 	
 	//@Autowired
 	//private JPAExample jpaExample;
 	
-	@Autowired
-	private AuthenticationExample authenticationExample;
+	//@Autowired
+	//private AuthenticationExample authenticationExample;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -38,6 +42,7 @@ public class UACApplication implements CommandLineRunner {
 		//jdbcExample.run();	
 		//jpaExample.run();
 		//authenticationExample.run();
+		userRepository.findAll();
 				
 	}
 
