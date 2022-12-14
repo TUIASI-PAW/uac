@@ -37,7 +37,7 @@ public class UACApplication implements CommandLineRunner {
 		log.info("Hello World!!!");
 		//jdbcExample.run();	
 		//jpaExample.run();
-		authenticationExample.run();
+		//authenticationExample.run();
 				
 	}
 

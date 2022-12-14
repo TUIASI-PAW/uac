@@ -8,11 +8,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
+	// https://www.baeldung.com/java-config-spring-security
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic();
+		// any request to the application is authenticated with form based login or HTTP basic authentication
+		// http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic();
+		http.csrf().disable().authorizeRequests().antMatchers("/hello").permitAll().anyRequest().authenticated().and().httpBasic();
 	}
+
+
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
