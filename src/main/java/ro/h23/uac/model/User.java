@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 //javax.persistence.* <= spring-boot-starter-data-jpa
 @Entity // hibernate will create a table out of this class
-@Table(name = "\"xyz\"")
+//@Table(name = "\"user\"")
 public class User {
 
 	@Id

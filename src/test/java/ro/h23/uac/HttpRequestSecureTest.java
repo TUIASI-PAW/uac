@@ -15,18 +15,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HttpRequestSecureTest {
 
     @Autowired
-    private TestRestTemplate template;
+    private TestRestTemplate restTemplate;
 
     @Test
     public void givenAuthRequestOnPrivateService_shouldSucceedWith200() throws Exception {
-        ResponseEntity<String> result = template.withBasicAuth("admin", "12345")
+        ResponseEntity<String> result = restTemplate.withBasicAuth("admin", "12345")
                 .getForEntity("/hellouser", String.class);
         assertThat(HttpStatus.OK).isEqualTo(result.getStatusCode());
     }
 
     @Test
     public void givenAuthRequestOnPrivateService_shouldFailWith401() throws Exception {
-        ResponseEntity<String> result = template.withBasicAuth("admin", "xxxxxxxxx")
+        ResponseEntity<String> result = restTemplate.withBasicAuth("admin", "xxxxxxxxx")
                 .getForEntity("/hellouser", String.class);
         assertThat(HttpStatus.UNAUTHORIZED).isEqualTo(result.getStatusCode());
     }

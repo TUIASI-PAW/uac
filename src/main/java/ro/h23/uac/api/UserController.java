@@ -16,7 +16,10 @@ import ro.h23.uac.repository.UserRepository;
 @RestController
 @RequestMapping(path = "/users")
 public class UserController {
-	
+
+	public UserController() {
+	}
+
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
